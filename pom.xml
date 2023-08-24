@@ -28,6 +28,7 @@
 
     <modules>
         <module>j-sso</module>
+        <module>j-service</module>
     </modules>
 
     <dependencyManagement>
