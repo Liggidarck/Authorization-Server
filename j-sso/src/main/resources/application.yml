@@ -9,7 +9,6 @@ logging:
     java.io: ERROR
     javax.management: ERROR
 
-
 spring:
   application:
     name: j-sso
@@ -17,3 +16,4 @@ spring:
     oauth2:
       authorizationserver:
         issuer-url: http://localhost:7777
+        introspection-endpoint: /oauth2/token-info
