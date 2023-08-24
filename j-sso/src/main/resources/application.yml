@@ -17,3 +17,25 @@ spring:
       authorizationserver:
         issuer-url: http://localhost:7777
         introspection-endpoint: /oauth2/token-info
+      client:
+          registration:
+            github:
+              clientId: c4c614cc6a10d5b5adf4
+              clientSecret: 8b5b3dcc8337176eed4bb76dc67cd84dceaf6140
+
+            yandex:
+              provider: yandex
+              clientId: 88968b5a14c6421685bb21b3fe98ea65
+              clientSecret: e594434a51f042b79969dd4632b15342
+              redirect-uri: http://localhost:7777/login/oauth2/code/yandex
+              authorizationGrantType: authorization_code
+              clientName: Yandex
+
+          provider:
+            yandex:
+              authorization-uri: https://oauth.yandex.ru/authorize
+              token-uri: https://oauth.yandex.ru/token
+              user-name-attribute: default_email
+              userInfoUri: https://login.yandex.ru/info
+
+yandex-avatar-url: https://avatars.yandex.net/get-yapic/{avatarId}/islands-retina-50

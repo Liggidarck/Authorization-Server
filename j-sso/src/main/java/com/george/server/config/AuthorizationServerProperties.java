@@ -1,4 +1,4 @@
-package com.george.server.comfig;
+package com.george.server.config;
 
 import lombok.Getter;
 import lombok.Setter;
