@@ -13,7 +13,7 @@ spring:
   application:
     name: j-sso
   liquibase:
-    enabled: false  # Указать true, если необходимо сделать накат скриптов БД при запуске приложения
+    enabled: true  # Указать true, если необходимо сделать накат скриптов БД при запуске приложения
     change-log: classpath:database/db.changelog.yaml
     contexts: prod, dev
   datasource:
@@ -42,17 +42,13 @@ spring:
       client:
         registration:
           github:
-            clientId: <your_github_client_id>
-            clientSecret: <your_github_client_secret>
-
-          google:
-            clientId: 608360869000-bvqc2b8ok52v010l3ps7cqnt8rj7thdv.apps.googleusercontent.com
-            clientSecret: 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
+            clientId: c4c614cc6a10d5b5adf4
+            clientSecret: 8b5b3dcc8337176eed4bb76dc67cd84dceaf6140
 
           yandex:
             provider: yandex
-            clientId: 4dad31d6d7fd4fe9b7c69b0fd5a83037
-            clientSecret: 5555a5a414944cc5b4b9dfaefa2968a7
+            clientId: 88968b5a14c6421685bb21b3fe98ea65
+            clientSecret: e594434a51f042b79969dd4632b15342
             redirect-uri: http://localhost:7777/login/oauth2/code/yandex
             authorizationGrantType: authorization_code
             clientName: Yandex

@@ -89,19 +89,28 @@
                     <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                 </configuration>
 
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>liquibase-update</id>-->
-<!--                        <phase>process-resources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>update</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <id>liquibase-update</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
 
             </plugin>
         </plugins>
 
+        <resources>
+            <resource>
+                <directory>${project.basedir}/database</directory>
+                <targetPath>${project.build.directory}/classes/database</targetPath>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
 
     </build>
 

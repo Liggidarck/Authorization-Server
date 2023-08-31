@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS sso.users
     email                 VARCHAR(100)                NOT NULL,
     password_hash         VARCHAR(500),
     first_name            varchar(100)                NOT NULL,
-    last_name           varchar(100)                NOT NULL,
+    last_name             varchar(100)                NOT NULL,
     middle_name           varchar(100),
     birthday              date,
     avatar_url            varchar(255),

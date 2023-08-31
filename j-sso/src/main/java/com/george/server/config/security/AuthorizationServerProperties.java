@@ -1,4 +1,4 @@
-package com.george.server.config;
+package com.george.server.config.security;
 
 import lombok.Getter;
 import lombok.Setter;
