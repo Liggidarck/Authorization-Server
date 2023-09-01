@@ -1,4 +1,4 @@
-package com.george.server.config.introspector;
+package com.george.server.config.security.introspector;
 import com.george.server.dto.TokenInfoDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;

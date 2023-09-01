@@ -1,4 +1,4 @@
-package com.george.server.config.introspector;
+package com.george.server.config.security.introspector;
 
 import com.george.server.dto.TokenInfoDto;
 import org.springframework.security.oauth2.core.OAuth2TokenIntrospectionClaimAccessor;

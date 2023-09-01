@@ -1,4 +1,4 @@
-package com.george.server.config.introspector;
+package com.george.server.config.security.introspector;
 
 import com.george.server.dto.AuthorizedUser;
 import com.george.server.dto.TokenInfoDto;
