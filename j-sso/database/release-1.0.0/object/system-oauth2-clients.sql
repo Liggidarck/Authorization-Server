@@ -1,9 +1,9 @@
 --liquibase formatted sql
 
---changeSet daivanov:system-oauth2-clients-1
+--changeset george:system_oauth2_clients-1
 create sequence sso.system_oauth2_clients_sq START 1;
 
---changeSet daivanov:system-oauth2-clients-2
+--changeset george:system-oauth2-clients-2
 CREATE TABLE sso.system_oauth2_clients
 (
     system_client_id              BIGINT        NOT NULL DEFAULT nextval('sso.system_oauth2_clients_sq'),

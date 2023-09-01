@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeSet daivanov:system-oauth2-clients-data-01
+--changeSet george:system-oauth2-clients-data-01
 INSERT INTO sso.system_oauth2_clients(client_id, client_secret,
                                       client_secret_expires_at,
                                       client_name, client_authentication_methods,

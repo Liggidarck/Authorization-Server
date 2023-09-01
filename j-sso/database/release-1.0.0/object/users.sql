@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset daivanov:users-1
+--changeset george:users-1
 CREATE TABLE IF NOT EXISTS sso.users
 (
     user_id               UUID                        NOT NULL DEFAULT uuid_generate_v4(),

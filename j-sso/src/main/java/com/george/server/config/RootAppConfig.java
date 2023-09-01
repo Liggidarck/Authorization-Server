@@ -12,7 +12,7 @@ import org.springframework.web.filter.CorsFilter;
 
 @Slf4j
 @Configuration
-@EnableJpaRepositories(basePackages = "com.george.server")
+@EnableJpaRepositories(basePackages = "com.george.server.dao.repository")
 public class RootAppConfig {
 
     @Bean

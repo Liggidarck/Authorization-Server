@@ -23,7 +23,8 @@ public class SocialConfigurator extends AbstractHttpConfigurer<SocialConfigurato
     public void init(HttpSecurity http) throws Exception {
         http.oauth2Login(oauth2Login -> {
             if (this.oAuth2UserService != null) {
-                oauth2Login.userInfoEndpoint().userService(this.oAuth2UserService);
+                oauth2Login.userInfoEndpoint(customizer ->
+                        customizer.userService(this.oAuth2UserService));
             }
             if (this.successHandler != null) {
                 oauth2Login.successHandler(this.successHandler);

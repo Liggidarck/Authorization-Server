@@ -2,12 +2,12 @@ package com.george.server.dto;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -15,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthorizedUser implements OAuth2User {
+
     private UUID id;
     private String firstName;
     private String lastName;
@@ -29,6 +30,13 @@ public class AuthorizedUser implements OAuth2User {
         if (principal == null) {
             return null;
         }
+        List<GrantedAuthority> authorities = Collections.emptyList();
+        if (principal.getAuthorities() != null) {
+            authorities = principal.getAuthorities()
+                    .stream()
+                    .map(SimpleGrantedAuthority::new)
+                    .collect(Collectors.toList());
+        }
         return AuthorizedUser.builder()
                 .id(principal.getId())
                 .firstName(principal.getFirstName())
@@ -38,7 +46,7 @@ public class AuthorizedUser implements OAuth2User {
                 .avatarUrl(principal.getAvatarUrl())
                 .username(principal.getUsername())
                 .email(principal.getEmail())
-                .authorities(principal.getAuthorities())
+                .authorities(authorities)
                 .build();
     }
 
