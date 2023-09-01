@@ -4,14 +4,44 @@ server:
 logging:
   level:
     root: DEBUG
-    org.springframework.security.web.FilterChainProxy: ERROR
+    org.springframework.security.web.FilterChainProxy: TRACE
+    org.springframework.security: TRACE
     logging.level.org.hibernate.SQL: INFO
     com.zaxxer.hikari: ERROR
     org.postgresql: ERROR
 
+springdoc:
+  auth-types:
+    auth-header-enabled: true
+    client-credentials-enabled: true
+    authorization-code-enabled: true
+  auth-oauth:
+    token-url: http://localhost:7777/oauth2/token
+    authorization_url: http://localhost:7777/oauth2/authorize
+    refresh-url: http://localhost:7777/oauth2/token
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+
+
 spring:
   application:
     name: j-sso
+  mvc:
+    static-path-pattern: /static/**
+    cors:
+      configs:
+        - pattern: /**
+          allowed-origins: "http://127.0.0.1:8080,http://localhost:8080,http://localhost:7778"
+          allowed-headers: "*"
+          exposed-headers: "*"
+          allowed-methods: "*"
+          allow-credentials: true
+  web:
+    resources:
+      static-locations: classpath:static
   session:
     timeout: 1800
     redis:
@@ -56,6 +86,8 @@ spring:
       authorizationserver:
         issuer-url: http://localhost:7777
         introspection-endpoint: /oauth2/token-info
+        authentication-success-url: http://localhost:7777/
+        custom-handler-header-name: J-Sso-Next-Location
       client:
         registration:
           github:

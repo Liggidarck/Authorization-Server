@@ -1,8 +1,5 @@
 package com.george.server.config.security;
 
-import com.george.server.dto.AuthorizedUser;
-import com.george.server.dto.IntrospectionPrincipal;
-import com.george.server.dto.TokenInfoDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +21,14 @@ import org.springframework.security.oauth2.server.authorization.settings.Authori
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.RequestMatcher;
+import com.george.server.dto.AuthorizedUser;
+import com.george.server.dto.IntrospectionPrincipal;
+import com.george.server.dto.TokenInfoDto;
 
 import java.io.IOException;
+
+import static com.george.server.config.security.SecurityConfig.PERMIT_ALL_PATTERNS;
+
 
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
@@ -47,7 +50,12 @@ public class AuthorizationServerConfig {
 
         RequestMatcher endpointsMatcher = authorizationServerConfigurer.getEndpointsMatcher();
         http.securityMatcher(endpointsMatcher)
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+                .authorizeHttpRequests(authorize ->
+                        authorize
+                                // ендпоинты которые вынесем из под security
+                                .requestMatchers(PERMIT_ALL_PATTERNS).permitAll()
+                                .anyRequest().authenticated()
+                )
                 .csrf(csrf -> csrf.ignoringRequestMatchers(endpointsMatcher))
                 .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login")))
                 .apply(authorizationServerConfigurer);

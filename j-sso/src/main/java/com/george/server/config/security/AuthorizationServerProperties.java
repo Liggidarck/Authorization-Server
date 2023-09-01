@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "spring.security.oauth2.authorizationserver")
 public class AuthorizationServerProperties {
+
     private String issuerUrl;
     private String introspectionEndpoint;
+    private String authenticationSuccessUrl;
+    private String customHandlerHeaderName;
 }
