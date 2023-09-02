@@ -14,6 +14,7 @@ services:
       - ./docker/postgres/data:/var/lib/postgresql/data
     networks:
       - j-network
+
   j-redis:
     image: redis:7.2-rc2
     restart: always

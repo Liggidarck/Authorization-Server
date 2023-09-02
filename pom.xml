@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    
     <groupId>com.george.server</groupId>
     <artifactId>auth-server-sso</artifactId>
     <packaging>pom</packaging>
@@ -11,31 +11,33 @@
     <name>authorization-server</name>
 
     <properties>
-        <maven.compiler.source>20</maven.compiler.source>
+        <java.version>20</java.version>
         <maven.compiler.target>20</maven.compiler.target>
+        <maven.compiler.source>20</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        
         <lombok.version>1.18.26</lombok.version>
         <security-oauth2-server.version>1.1.1</security-oauth2-server.version>
         <security-oauth2-resource-server.version>3.1.1</security-oauth2-resource-server.version>
         <springdoc.version>2.1.0</springdoc.version>
         <google.guava.version>31.1-jre</google.guava.version>
-
-        <frontend-maven-plugin.version>1.13.4</frontend-maven-plugin.version>    </properties>
-
+        
+        <frontend-maven-plugin.version>1.13.4</frontend-maven-plugin.version>
+    </properties>
+    
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.1</version>
         <relativePath/>
     </parent>
-
+    
     <modules>
-        <module>j-sso</module>
-        <module>j-service</module>
-        <module>j-swagger-ui</module>
+        <module>sso</module>
+        <module>service</module>
+        <module>swagger-ui</module>
     </modules>
-
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -65,7 +67,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    
     <build>
         <pluginManagement>
             <plugins>
